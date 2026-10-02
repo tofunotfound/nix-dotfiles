@@ -12,6 +12,7 @@
 
   myFeatures.network = true;
   myFeatures.fstrim = true;
+  myFeatures.openssh = true;
   
   myFeatures.xserverI3 = true;  
   myFeatures.pipewire = true;   
