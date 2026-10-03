@@ -9,7 +9,7 @@
     };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, ... }@inputs: 
-    { nixosConfigurations.laptopI3 = nixpkgs.lib.nixosSystem 
+    { nixosConfigurations.laptop = nixpkgs.lib.nixosSystem 
       { system = "x86_64-linux";
 
       modules = 
