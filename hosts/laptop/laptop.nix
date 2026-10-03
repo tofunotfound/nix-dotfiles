@@ -10,14 +10,16 @@
     ../../modules/users/tofu.nix
   ];
 
-  myFeatures.network = true;
-  myFeatures.fstrim = true;
-  myFeatures.openssh = true;
+  myFeatures = 
+  { network = true;
+    fstrim = true;
+    openssh = true;
   
-  myFeatures.xserverI3 = true;  
-  myFeatures.pipewire = true;   
-  myFeatures.syncthing = true;
-  myFeatures.unclutter = true;
+    xserverI3 = true;  
+    pipewire = true;   
+    syncthing = true;
+    unclutter = true;
+  };
 
 }
 
