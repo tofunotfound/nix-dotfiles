@@ -49,6 +49,7 @@ in
 
     home.file = 
     { ".Xresources".source = symlink "${dotfilesDir}/.Xresources";
+      ".gitconfig".source = symlink "${dotfilesDir}/.gitconfig";
     };
 
     xdg.configFile =
