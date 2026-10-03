@@ -6,10 +6,11 @@
   [ ./configuration.nix
     ./hardware-configuration.nix
     ../../modules/packages/packages.nix
+    #../../modules/packages/home/default.nix
     ../../modules/services
     ../../modules/users/tofu.nix
   ];
-
+  
   myFeatures = 
   { network = true;
     fstrim = true;

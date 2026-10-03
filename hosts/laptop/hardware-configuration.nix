@@ -14,14 +14,12 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { #device = "/dev/disk/by-label/NIXROOT";
-      label = "NIXROOT";
+    { label = "NIXROOT";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { #device = "/dev/disk/by-label/NIXBOOT";
-      label = "NIXBOOT";
+    { label = "NIXBOOT";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };

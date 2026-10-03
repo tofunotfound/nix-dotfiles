@@ -25,11 +25,14 @@ in
   home-manager.users."${username}" = { config, pkg, ... }:
   { home.username = "${username}";
     home.homeDirectory = "/home/${username}";
-    home.stateVersion = "26.05"; 
+    home.stateVersion = "26.05";
+
+    imports = 
+    [ ../packages/home/default.nix
+    ];
 
    home.packages = with pkgs;
-   [ alacritty
-     kitty
+   [ kitty
      fastfetch
      gsimplecal
      i3blocks
@@ -53,8 +56,7 @@ in
     };
 
     xdg.configFile =
-    { "alacritty".source = symlink "${dotfilesDir}/.config/alacritty";
-      "fastfetch".source = symlink "${dotfilesDir}/.config/fastfetch";
+    { "fastfetch".source = symlink "${dotfilesDir}/.config/fastfetch";
       "fish".source = symlink "${dotfilesDir}/.config/fish";
       "gsimplecal".source = symlink "${dotfilesDir}/.config/gsimplecal";
       "gtk-3.0".source = symlink "${dotfilesDir}/.config/gtk-3.0";
