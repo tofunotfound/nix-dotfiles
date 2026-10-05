@@ -31,11 +31,11 @@ in
       ../gsimplecal
       ../gtk
       ../i3
+      ../i3blocks
     ];
 
    home.packages = with pkgs;
-   [ i3blocks
-     rofi
+   [ rofi
      sxhkd
      yazi
      maim
@@ -48,8 +48,7 @@ in
    ];
 
     xdg.configFile =
-    { "i3blocks".source = symlink "${dotfilesDir}/.config/i3blocks";
-      "mozilla".source = symlink "${dotfilesDir}/.config/mozilla";
+    { "mozilla".source = symlink "${dotfilesDir}/.config/mozilla";
       "nvim".source = symlink "${dotfilesDir}/.config/nvim";
       "ookla".source = symlink "${dotfilesDir}/.config/ookla";
       "rofi".source = symlink "${dotfilesDir}/.config/rofi";
