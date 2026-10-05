@@ -30,6 +30,7 @@ in
       ../fish
       ../gsimplecal
       ../gtk
+      ../i3
     ];
 
    home.packages = with pkgs;
@@ -47,8 +48,7 @@ in
    ];
 
     xdg.configFile =
-    { "i3".source = symlink "${dotfilesDir}/.config/i3";
-      "i3blocks".source = symlink "${dotfilesDir}/.config/i3blocks";
+    { "i3blocks".source = symlink "${dotfilesDir}/.config/i3blocks";
       "mozilla".source = symlink "${dotfilesDir}/.config/mozilla";
       "nvim".source = symlink "${dotfilesDir}/.config/nvim";
       "ookla".source = symlink "${dotfilesDir}/.config/ookla";
