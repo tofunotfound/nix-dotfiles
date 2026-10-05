@@ -3,8 +3,9 @@
 {
 
   programs = 
-  { fish.enable = true;
+  { fish.enable = true;  
     tmux.enable = true;
+
     #steam.enable = true;
     #steam.package = unstable.steam;
   };
