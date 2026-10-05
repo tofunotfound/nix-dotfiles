@@ -1,12 +1,5 @@
 { config, pkgs, inputs, ... }:
 
-let
-  unstable = import inputs.nixpkgs-unstable 
-  { system = pkgs.system;
-    config.allowUnfree = true;
-  };
-in 
-
 {
 
   programs = 
@@ -23,8 +16,7 @@ in
     less
     ookla-speedtest
     brightnessctl
-
-    unstable.home-manager
+    home-manager
   ];
 
   fonts.packages = with pkgs; 

@@ -5,10 +5,13 @@
   imports =
   [ ./configuration.nix
     ./hardware-configuration.nix
-    ../../modules/packages/packages.nix
-    #../../modules/packages/home/default.nix
-    ../../modules/services
-    ../../modules/users/tofu.nix
+    ../../modules/system/features
+    ../../modules/system/i3
+    ../../modules/system/packages
+    ../../modules/system/pipewire
+    ../../modules/system/syncthing
+    ../../modules/system/unclutter
+    ../../modules/user/user
   ];
   
   myFeatures = 

@@ -6,11 +6,6 @@ let
 
   userLib = config.home-manager.users.${username};
   symlink = userLib.lib.file.mkOutOfStoreSymlink;
-
-  unstable = import inputs.nixpkgs-unstable 
-  { system = pkgs.system;
-    config.allowUnfree = true;
-  };
 in
 
 {
@@ -28,7 +23,7 @@ in
     home.stateVersion = "26.05";
 
     imports = 
-    [ ../packages/home/default.nix
+    [ ../alacritty
     ];
 
    home.packages = with pkgs;
@@ -43,10 +38,9 @@ in
      playerctl
      mpv
      btop
-     
-     unstable.neovim
-     unstable.firefox
-     unstable.spotatui
+     neovim
+     firefox
+     spotatui
    ];
 
 
