@@ -28,12 +28,11 @@ in
       ../git
       ../fastfetch
       ../fish
+      ../gsimplecal
     ];
 
    home.packages = with pkgs;
-   [ kitty
-     gsimplecal
-     i3blocks
+   [ i3blocks
      rofi
      sxhkd
      yazi
@@ -47,8 +46,7 @@ in
    ];
 
     xdg.configFile =
-    { "gsimplecal".source = symlink "${dotfilesDir}/.config/gsimplecal";
-      "gtk-3.0".source = symlink "${dotfilesDir}/.config/gtk-3.0";
+    { "gtk-3.0".source = symlink "${dotfilesDir}/.config/gtk-3.0";
       "i3".source = symlink "${dotfilesDir}/.config/i3";
       "i3blocks".source = symlink "${dotfilesDir}/.config/i3blocks";
       "mozilla".source = symlink "${dotfilesDir}/.config/mozilla";
