@@ -26,11 +26,11 @@ in
     [ ../alacritty
       ../xresources
       ../git
+      ../fastfetch
     ];
 
    home.packages = with pkgs;
    [ kitty
-     fastfetch
      gsimplecal
      i3blocks
      rofi
@@ -46,8 +46,7 @@ in
    ];
 
     xdg.configFile =
-    { "fastfetch".source = symlink "${dotfilesDir}/.config/fastfetch";
-      "fish".source = symlink "${dotfilesDir}/.config/fish";
+    { "fish".source = symlink "${dotfilesDir}/.config/fish";
       "gsimplecal".source = symlink "${dotfilesDir}/.config/gsimplecal";
       "gtk-3.0".source = symlink "${dotfilesDir}/.config/gtk-3.0";
       "i3".source = symlink "${dotfilesDir}/.config/i3";
