@@ -17,13 +17,15 @@ in
     packages = with pkgs; [];
   };
 
-  home-manager.users."${username}" = { config, pkg, ... }:
+  home-manager.users."${username}" = { config, pkgs, ... }:
   { home.username = "${username}";
     home.homeDirectory = "/home/${username}";
     home.stateVersion = "26.05";
 
     imports = 
     [ ../alacritty
+      ../xresources
+      ../git
     ];
 
    home.packages = with pkgs;
@@ -42,12 +44,6 @@ in
      firefox
      spotatui
    ];
-
-
-    home.file = 
-    { ".Xresources".source = symlink "${dotfilesDir}/.Xresources";
-      ".gitconfig".source = symlink "${dotfilesDir}/.gitconfig";
-    };
 
     xdg.configFile =
     { "fastfetch".source = symlink "${dotfilesDir}/.config/fastfetch";

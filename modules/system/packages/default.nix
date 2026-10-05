@@ -10,8 +10,7 @@
   };
 
   environment.systemPackages = with pkgs; 
-  [ git
-    p7zip
+  [ p7zip
     xclip
     less
     ookla-speedtest
