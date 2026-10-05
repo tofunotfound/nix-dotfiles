@@ -29,6 +29,7 @@ in
       ../fastfetch
       ../fish
       ../gsimplecal
+      ../gtk
     ];
 
    home.packages = with pkgs;
@@ -46,8 +47,7 @@ in
    ];
 
     xdg.configFile =
-    { "gtk-3.0".source = symlink "${dotfilesDir}/.config/gtk-3.0";
-      "i3".source = symlink "${dotfilesDir}/.config/i3";
+    { "i3".source = symlink "${dotfilesDir}/.config/i3";
       "i3blocks".source = symlink "${dotfilesDir}/.config/i3blocks";
       "mozilla".source = symlink "${dotfilesDir}/.config/mozilla";
       "nvim".source = symlink "${dotfilesDir}/.config/nvim";
