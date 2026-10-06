@@ -18,7 +18,7 @@
       "super + shift + space" = "i3-msg floating toggle";
       "super + a ; {j,k}" = "i3-msg focus {parent,child}";
       "super + shift {c,r,e}" = "{i3-msg reload, pkill sxhkd && i3-msg restart, i3-nagbar -t \"Warning\" -m \"Выход??\" -B \"ДА\" \"i3-msg exit\"}";
-      "super + ctrl {h,j,k,l} " = "i3-msg {resize shrink width 10 px or 10 ppt, resize grow height 10 px or 10 ppt, resize shrink height 10 px or 10 ppt, resize grow width 10 px or 10 ppt}";
+      "super + ctrl {h,k,j,l} " = "i3-msg {resize shrink width 10 px or 10 ppt, resize grow height 10 px or 10 ppt, resize shrink height 10 px or 10 ppt, resize grow width 10 px or 10 ppt}";
       
       "ctrl + space" = "rofi -show drun -show-icons";
       
