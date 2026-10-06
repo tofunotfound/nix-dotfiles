@@ -25,36 +25,30 @@ in
     imports = 
     [ ../alacritty
       ../xresources
-      ../git
       ../fastfetch
       ../fish
       ../gsimplecal
       ../gtk
       ../i3
       ../i3blocks
+      ../syncthing
+      ../unclutter
+      ../rofi
     ];
 
    home.packages = with pkgs;
-   [ rofi
-     sxhkd
+   [ sxhkd
      yazi
      maim
      playerctl
      mpv
      btop
-     neovim
      firefox
-     spotatui
    ];
 
     xdg.configFile =
     { "mozilla".source = symlink "${dotfilesDir}/.config/mozilla";
-      "nvim".source = symlink "${dotfilesDir}/.config/nvim";
-      "ookla".source = symlink "${dotfilesDir}/.config/ookla";
-      "rofi".source = symlink "${dotfilesDir}/.config/rofi";
-      "spotatui".source = symlink "${dotfilesDir}/.config/spotatui";
       "sxhkd".source = symlink "${dotfilesDir}/.config/sxhkd";
-      "syncthing".source = symlink "${dotfilesDir}/.config/syncthing";
     };
   };
 

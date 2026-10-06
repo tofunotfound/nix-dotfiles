@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -13,7 +13,6 @@
   environment.systemPackages = with pkgs; 
   [ p7zip
     xclip
-    less
     ookla-speedtest
     brightnessctl
     home-manager

@@ -1,10 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ ... }:
 
-{
-  
-  options.myFeatures.xserverI3 = lib.mkEnableOption "xserver + i3";  
+{ 
 
-  config.services = lib.mkIf config.myFeatures.xserverI3
+  services =
   { displayManager.ly.enable = true;
 
     xserver = 
