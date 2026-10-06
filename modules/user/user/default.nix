@@ -34,11 +34,11 @@ in
       ../syncthing
       ../unclutter
       ../rofi
+      ../sxhkd
     ];
 
    home.packages = with pkgs;
-   [ sxhkd
-     yazi
+   [ yazi
      maim
      playerctl
      mpv
@@ -48,7 +48,6 @@ in
 
     xdg.configFile =
     { "mozilla".source = symlink "${dotfilesDir}/.config/mozilla";
-      "sxhkd".source = symlink "${dotfilesDir}/.config/sxhkd";
     };
   };
 
