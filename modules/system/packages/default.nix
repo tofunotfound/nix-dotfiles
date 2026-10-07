@@ -13,7 +13,6 @@
   environment.systemPackages = with pkgs; 
   [ p7zip
     xclip
-    ookla-speedtest
     brightnessctl
     home-manager
   ];

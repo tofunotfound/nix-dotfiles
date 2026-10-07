@@ -43,6 +43,7 @@ in
      playerctl
      mpv
      btop
+     ookla-speedtest
      firefox
    ];
 
