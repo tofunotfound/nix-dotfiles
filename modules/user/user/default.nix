@@ -22,8 +22,6 @@ in
     home.homeDirectory = "/home/${username}";
     home.stateVersion = "26.05";
 
-    nixpkgs.config.allowUnfree = true;
-
     imports = 
     [ ../alacritty
       ../xresources
@@ -37,6 +35,7 @@ in
       ../unclutter
       ../rofi
       ../sxhkd
+      ../nixpkgs
     ];
 
    home.packages = with pkgs;
