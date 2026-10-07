@@ -51,7 +51,7 @@ in
 	};
         volume = after [ "battery" ]
         { command = "~/.config/i3blocks/blocklets/volume";
-          interval = "once";
+          interval = 1;
 	  markup = "pango";
           signal = 10;
 	};
