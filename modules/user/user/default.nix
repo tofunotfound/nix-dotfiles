@@ -44,6 +44,7 @@ in
      playerctl
      mpv
      btop
+     sptlrx
      firefox
    ];
   };
