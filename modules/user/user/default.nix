@@ -46,10 +46,6 @@ in
      btop
      firefox
    ];
-
-    xdg.configFile =
-    { "mozilla".source = symlink "${dotfilesDir}/.config/mozilla";
-    };
   };
 
 }

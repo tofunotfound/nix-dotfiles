@@ -6,8 +6,7 @@
   { fish.enable = true;  
     tmux.enable = true;
 
-    #steam.enable = true;
-    #steam.package = unstable.steam;
+    steam.enable = true;
   };
 
   environment.systemPackages = with pkgs; 
