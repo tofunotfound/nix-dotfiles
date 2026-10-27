@@ -46,6 +46,9 @@ in
      btop
      sptlrx
      firefox
+     opencode
+     telegram-desktop
+     warpd
    ];
   };
 
