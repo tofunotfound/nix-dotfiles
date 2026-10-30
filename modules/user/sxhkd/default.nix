@@ -27,6 +27,8 @@
 
       "XF86MonBrightness{Up,Down}" = "brightnessctl set {+5%,5%-}";
       "XF86Display" = "[ \"\$(brightnessctl get)\" -gt 0 ] && brightnessctl get > /tmp/brightness_back && brightnessctl set 0 || brightnessctl set \$(cat /tmp/brightness_back)";
+
+      "super + {x,c,g}" = "warpd {--hint,--normal,--grid}";
     };
   };
 
