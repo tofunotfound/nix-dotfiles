@@ -4,9 +4,7 @@ let
   username = "tofu";
   dotfilesDir = "/home/${username}/.dotfiles";
 
-  userLib = config.home-manager.users.${username};
-  symlink = userLib.lib.file.mkOutOfStoreSymlink;
-in
+in 
 
 {
 
@@ -35,20 +33,21 @@ in
       ../unclutter
       ../rofi
       ../sxhkd
-      ../nixpkgs
+      #../nixpkgs
     ];
 
    home.packages = with pkgs;
    [ yazi
      maim
      playerctl
-     mpv
+     mpv 
      btop
      sptlrx
      firefox
      opencode
      telegram-desktop
      warpd
+     prismlauncher
    ];
   };
 
