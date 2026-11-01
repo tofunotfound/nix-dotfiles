@@ -1,4 +1,5 @@
-{ pkgs, ... }:
+{
+ pkgs, ... }:
 
 {
 
@@ -9,12 +10,20 @@
     [ obsidian-nvim
       telescope-nvim
       nvim-cmp
+      render-markdown-nvim
+      nvim-treesitter.withAllGrammars
+      cmp-buffer
+      cmp-path
     ];
 
     extraLuaConfig = ''
        require("obsidian").setup({
 
          legacy_commands = false,
+
+	 frontmatter = {
+	   enabled = false,
+	 },
 
          workspaces = {
 	  {
