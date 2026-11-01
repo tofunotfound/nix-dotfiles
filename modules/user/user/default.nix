@@ -33,6 +33,7 @@ in
       ../unclutter
       ../rofi
       ../sxhkd
+      ../nvim
       #../nixpkgs
     ];
 
@@ -40,7 +41,7 @@ in
    [ yazi
      maim
      playerctl
-     mpv 
+     mpv
      btop
      sptlrx
      firefox
