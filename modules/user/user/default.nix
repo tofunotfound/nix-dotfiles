@@ -34,7 +34,7 @@ in
       ../rofi
       ../sxhkd
       ../nvim
-      #../nixpkgs
+      ../nixpkgs
     ];
 
    home.packages = with pkgs;

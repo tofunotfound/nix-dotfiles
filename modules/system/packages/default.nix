@@ -11,8 +11,6 @@
 
   environment.systemPackages = with pkgs; 
   [ neovim
-      ripgrep
-      fd
     p7zip
     xclip
     brightnessctl
