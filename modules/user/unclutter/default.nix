@@ -6,7 +6,10 @@
   { enable = true;
     package = pkgs.unclutter-xfixes;
     timeout = 1;
-    extraOptions = [ "root" ];
+    extraOptions = 
+    [ "root"
+      "jitter 8"
+    ];
   };
 
 }
