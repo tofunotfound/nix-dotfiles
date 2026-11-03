@@ -35,6 +35,7 @@ in
       ../sxhkd
       ../nvim
       ../nixpkgs
+      ../dunst
     ];
 
    home.packages = with pkgs;
@@ -46,9 +47,9 @@ in
      sptlrx
      firefox
      opencode
-     telegram-desktop
      warpd
      prismlauncher
+     inputs.tele-client.packages.${pkgs.system}.default
    ];
   };
 
