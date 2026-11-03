@@ -10,7 +10,7 @@
   };
 
   home-manager.users.tofu = { config, pkgs, ... }:
-  { home.username = tofu;
+  { home.username = "tofu";
     home.homeDirectory = "/home/tofu";
     home.stateVersion = "26.05";
 
