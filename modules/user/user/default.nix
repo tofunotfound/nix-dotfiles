@@ -1,23 +1,17 @@
 { config, pkgs, inputs, ... }:
 
-let
-  username = "tofu";
-  dotfilesDir = "/home/${username}/.dotfiles";
-
-in 
-
 {
 
-  users.users."${username}" = 
+  users.users.tofu = 
   { isNormalUser = true;
     shell = pkgs.fish;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };
 
-  home-manager.users."${username}" = { config, pkgs, ... }:
-  { home.username = "${username}";
-    home.homeDirectory = "/home/${username}";
+  home-manager.users.tofu = { config, pkgs, ... }:
+  { home.username = tofu;
+    home.homeDirectory = "/home/tofu";
     home.stateVersion = "26.05";
 
     imports = 
@@ -44,11 +38,9 @@ in
      playerctl
      mpv
      btop
-     sptlrx
      firefox
      opencode
      warpd
-     prismlauncher
      inputs.tele-client.packages.${pkgs.system}.default
    ];
   };
