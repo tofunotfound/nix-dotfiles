@@ -1,14 +1,15 @@
 { pkgs, ... }:
 
 {
+  
+  home.packages = with pkgs;
+  [ ripgrep
+    fd
+    zk
+  ];
 
   programs.neovim = 
   { enable = true;
-    extraPackages = with pkgs;
-    [ ripgrep
-      fd
-      zk
-    ];
 
     plugins = with pkgs.vimPlugins; 
     [ telescope-nvim
