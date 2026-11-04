@@ -7,10 +7,12 @@
     extraPackages = with pkgs;
     [ ripgrep
       fd
+      zk
     ];
 
     plugins = with pkgs.vimPlugins; 
     [ telescope-nvim
+      zk-nvim
       render-markdown-nvim
       nvim-web-devicons
       blink-cmp
@@ -30,7 +32,7 @@
        require('blink.cmp').setup({
          keymap = { preset = 'default' },
 	 sources = {
-	   default = { 'path' },
+	   default = { 'path', 'lsp' },
 	 },
        })
 
