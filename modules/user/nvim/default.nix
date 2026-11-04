@@ -27,6 +27,28 @@
 	 callback = function() end,
        })
 
+       require("zk").setup({
+         picker = "telescope",
+	 lsp = 
+	 { config = 
+	   { cmd = { "zk", "lsp" },
+	     name = "zk",
+	     auto_attach = true,
+
+	     capabilities = require('blink.cmp').get_lsp_capabilities(),
+	   },
+	 },
+       })
+
+       vim.api.nvim_create_autocmd("FileType", 
+       { pattern = "markdown",
+         callback = function()
+	   local opts = { buffer = true, silent = true }
+	   vim.keymap.set("n", "gf", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+           vim.keymap.set("n", "<leader>jb", "<cmd>ZkBacklinks<CR>", opts)
+         end,
+       })
+
        require('render-markdown').setup({})
        require('nvim-web-devicons').setup({})
 
