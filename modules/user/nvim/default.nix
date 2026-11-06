@@ -38,8 +38,8 @@
 	lsp = {
           config = {
             on_attach = function(client, bufnr)
-              vim.keymap.set("n", "gf", "<cmd>ZkFollowLink<CR>", { buffer = bufnr, desc = "Zk Follow Link" })
-            end,
+	      vim.keymap.set("n", "gf", vim.lsp.buf.definition, { buffer = bufnr })  
+	    end,
           },
         },
       })
