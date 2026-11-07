@@ -17,10 +17,14 @@
       blink-cmp
       zk-nvim
       langmapper-nvim
+      bullets-vim
     ];
 
     extraLuaConfig =
-    ''local langmapper = require('langmapper')
+    ''vim.opt.number = true
+      vim.opt.relativenumber = true
+
+      local langmapper = require('langmapper')
       langmapper.setup({
 	hack_keymap = true,
       })
