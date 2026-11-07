@@ -9,6 +9,7 @@
     ../../modules/system/i3
     ../../modules/system/packages
     ../../modules/system/pipewire
+    ../../modules/system/bluetooth
     ../../modules/system/git
     ../../modules/user/user
   ];

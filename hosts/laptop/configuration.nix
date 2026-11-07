@@ -6,6 +6,7 @@
   { loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = [ "mem_sleep_default=deep" ];
   };
 
   networking.hostName = "laptop";
@@ -17,10 +18,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-
-  hardware.bluetooth.enable = true;
   zramSwap.enable = true;
-
 
   system.stateVersion = "26.05";
 
