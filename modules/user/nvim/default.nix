@@ -18,10 +18,16 @@
       zk-nvim
       langmapper-nvim
       bullets-vim
+      black-metal-theme-neovim
     ];
 
     extraLuaConfig =
-    ''vim.opt.number = true
+    ''vim.opt.termguicolors = true
+      require("black-metal").setup({ trve = true })
+      vim.cmd("colorscheme bathory")
+
+
+      vim.opt.number = true
       vim.opt.relativenumber = true
 
       local langmapper = require('langmapper')
