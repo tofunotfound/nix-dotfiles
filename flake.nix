@@ -15,7 +15,7 @@
       { system = "x86_64-linux";
 
       modules = 
-      [ ./hosts/laptop/laptop.nix
+      [ ./hosts/thinkpad
 	inputs.home-manager.nixosModules.home-manager
       ];
 

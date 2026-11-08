@@ -1,9 +1,17 @@
-{ ... }:
+{ config, lib, ... }:
+
+let
+  cfg = config.myHomeModules.xresources;
+in
 
 {
 
-  xresources.properties = 
-  { "Xft.dpi" = 140;
+  options.myHomeModules.xresources.enable = lib.mkEnableOption "xresources settings";
+
+  config = lib.mkIf cfg.enable {
+    xresources.properties = 
+    { "Xft.dpi" = 140;
+    };
   };
 
 }

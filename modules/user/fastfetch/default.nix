@@ -1,41 +1,49 @@
-{ ... }:
+{ config, lib, ... }:
+
+let
+  cfg = config.myHomeModules.fastfetch;
+in
 
 {
 
-  programs.fastfetch = 
-  { enable = true;
+  options.myHomeModules.fastfetch.enable = lib.mkEnableOption "add fastfetch";
 
-    settings = 
-    { modules = 
-      [ "title"
-        "separator"
-        "os"
-        "host"
-        "kernel"
-        "uptime"
-        "packages"
-        "shell"
-        "display"
-        "wm"
-        "wmtheme"
-        "theme"
-        "icons"
-        "font"
-        "cursor"
-        "terminal"
-        "terminalfont"
-        "cpu"
-        "gpu"
-        "memory"
-        "swap"
-        "disk"
-        "localip"
-        "battery"
-        "poweradapter"
-        "locale"
-        "break"
-        "colors" 
-      ];
+  config = lib.mkIf cfg.enable {
+    programs.fastfetch = 
+    { enable = true;
+  
+      settings = 
+      { modules = 
+        [ "title"
+          "separator"
+          "os"
+          "host"
+          "kernel"
+          "uptime"
+          "packages"
+          "shell"
+          "display"
+          "wm"
+          "wmtheme"
+          "theme"
+          "icons"
+          "font"
+          "cursor"
+          "terminal"
+          "terminalfont"
+          "cpu"
+          "gpu"
+          "memory"
+          "swap"
+          "disk"
+          "localip"
+          "battery"
+          "poweradapter"
+          "locale"
+          "break"
+          "colors" 
+        ];
+      };
     };
   };
 

@@ -1,7 +1,15 @@
-{ ... }:
+{ config, lib, ... }:
+
+let
+  cfg = config.myHomeModules.syncthing;
+in
 
 {
 
-  services.syncthing.enable = true;
+  options.myHomeModules.syncthing.enable = lib.mkEnableOption "add syncthing";
+
+  config = lib.mkIf cfg.enable {
+    services.syncthing.enable = true;
+  };
 
 }

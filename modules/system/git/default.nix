@@ -1,16 +1,24 @@
-{ ... }:
+{ config, lib, ... }:
+
+let
+  cfg = config.myModules.git;
+in
 
 {
+  
+  options.myModules.git.enable = lib.mkEnableOption "add git";
 
-  programs.git = 
-  { enable = true;
-    
-    config = 
-    { user = 
-      { name = "tofunotfound";
-        email = "tofunotfound@gmail.com";
+  config = lib.mkIf cfg.enable {
+    programs.git = 
+    { enable = true;
+      
+      config = 
+      { user = 
+        { name = "tofunotfound";
+          email = "tofunotfound@gmail.com";
+        };
+        init.defaultBranch = "main";
       };
-      init.defaultBranch = "main";
     };
   };
 

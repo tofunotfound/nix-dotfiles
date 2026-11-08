@@ -1,14 +1,22 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
+
+let
+  cfg = config.myHomeModules.rofi;
+in
 
 {
 
-  programs.rofi = 
-  { enable = true;
+  options.myHomeModules.rofi.enable = lib.mkEnableOption "add rofi";
 
-    theme = "${pkgs.rofi}/share/rofi/themes/Arc-Dark";
-    
-    extraConfig = 
-    { dpi = 200;
+  config = lib.mkIf cfg.enable {
+    programs.rofi = 
+    { enable = true;
+  
+      theme = "${pkgs.rofi}/share/rofi/themes/Arc-Dark";
+      
+      extraConfig = 
+      { dpi = 200;
+      };
     };
   };
 

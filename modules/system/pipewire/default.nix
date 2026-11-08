@@ -1,14 +1,22 @@
-{ ... }:
+{ config, lib, ... }:
+
+let
+  cfg = config.myModules.pipewire;
+in
 
 {
+  
+  options.myModules.pipewire.enable = lib.mkEnableOption "add pipewire";
 
-  services.pipewire = 
-  { enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+  config = lib.mkIf cfg.enable {
+    services.pipewire = 
+    { enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+  
+    security.rtkit.enable = true;  
   };
-
-  security.rtkit.enable = true;  
 
 }

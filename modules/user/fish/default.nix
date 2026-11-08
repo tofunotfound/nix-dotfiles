@@ -1,11 +1,19 @@
-{ ... }:
+{ config, lib, ... }:
+
+let
+  cfg = config.myHomeModules.fish;
+in
 
 {
 
-  programs.fish = 
-  { enable = true;
+  options.myHomeModules.fish.enable = lib.mkEnableOption "add fish";
 
-    interactiveShellInit = "set fish_greeting";
+  config = lib.mkIf cfg.enable {
+    programs.fish = 
+    { enable = true;
+  
+      interactiveShellInit = "set fish_greeting";
+    };
   };
 
 }
