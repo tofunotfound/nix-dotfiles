@@ -25,27 +25,7 @@ in
   	font = "JetBrains Mono 11";
         };
   
-        urgency_low = 
-        { background = "#1e1e2e";
-          foreground = "#cdd6f4";
-  	frame_color = "#89b4fa";
-  	timeout = 5;
-        };
-  
-        urgency_normal =
-        { background = "#1e1e2e";
-          foreground = "#cdd6f4";
-  	frame_color = "#89b4fa";
-  	timeout = 8;
-        };
-  
-        urgency_critical =
-        { background = "#1e1e2e";
-          foreground = "#cdd6f4";
-  	frame_color = "#f38ba8";
-  	timeout = 0;
-        };
-      };
+     };
     };
   };
 
