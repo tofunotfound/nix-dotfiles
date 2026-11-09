@@ -2,13 +2,11 @@
 
 {
 
-  boot = 
-  { loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
-    kernelPackages = pkgs.linuxPackages_latest;
-  };
+  wsl.enable = true;
+  wsl.defaultUser = "tofu";
+  networking.wireless.enable = false;
 
-  networking.hostName = "laptop";
+  networking.hostName = "wsl";
 
   time.timeZone = "Europe/Minsk";
   i18n.defaultLocale = "ru_RU.UTF-8";
@@ -28,8 +26,8 @@
     git.enable = true;
     xserveri3.enable = false;
     pipewire.enable = false;
-    networkmanager.enable = true;
-    fstrim.enable = true;
+    networkmanager.enable = false;
+    fstrim.enable = false;
     zram.enable = false;
     openssh.enable = true;
     

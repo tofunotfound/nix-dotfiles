@@ -7,11 +7,13 @@
       home-manager.url = "github:nix-community/home-manager/master"; 
       home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+      nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+
       tele-client.url = "github:sorokin-vladimir/tele";
       catppuccin.url = "github:catppuccin/nix";
     };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, tele-client, catppuccin, ... }@inputs: 
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, nixos-wsl, tele-client, catppuccin, ... }@inputs: 
     { nixosConfigurations = 
       { laptop = nixpkgs.lib.nixosSystem 
         { system = "x86_64-linux";
@@ -32,6 +34,7 @@
           
   	  modules = 
   	  [ ./hosts/wsl 
+	    nixos-wsl.nixosModules.default
   	    home-manager.nixosModules.home-manager
   	  ];
         };
