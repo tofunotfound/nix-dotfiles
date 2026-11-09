@@ -30,9 +30,7 @@ in
       ];
   
       extraLuaConfig =
-      ''vim.cmd("colorscheme catppuccin")
-  
-        vim.opt.number = true
+      ''vim.opt.number = true
         vim.opt.relativenumber = true
   
         local langmapper = require('langmapper')

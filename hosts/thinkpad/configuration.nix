@@ -35,6 +35,7 @@
     fstrim.enable = true;
     zram.enable = true;
     openssh.enable = true;
+    
     packages = 
     { default.enable = true;
       brightnessctl.enable = true;

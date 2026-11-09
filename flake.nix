@@ -8,18 +8,20 @@
       home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
       tele-client.url = "github:sorokin-vladimir/tele";
+      catppuccin.url = "github:catppuccin/nix";
     };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, tele-client, ... }@inputs: 
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, tele-client, catppuccin, ... }@inputs: 
     { nixosConfigurations.laptop = nixpkgs.lib.nixosSystem 
       { system = "x86_64-linux";
+        
+	specialArgs = { inherit inputs; };
+        
+	modules = 
+	[ ./hosts/thinkpad 
+	  home-manager.nixosModules.home-manager
+	];
 
-      modules = 
-      [ ./hosts/thinkpad
-	inputs.home-manager.nixosModules.home-manager
-      ];
-
-      specialArgs = { inherit inputs; };
       };
     };
 

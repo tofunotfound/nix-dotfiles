@@ -19,6 +19,7 @@
     ./nixpkgs
     ./dunst
     ./packages
+    ./theme
   ];
 
 }
