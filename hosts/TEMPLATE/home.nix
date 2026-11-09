@@ -1,17 +1,33 @@
-{ pkgs, inputs, ... }:
+{ ... }:
 
 {
+  
+  myHomeModules = 
+  { alacritty.enable = true;
+    dunst.enable = true;
+    fastfetch.enable = true;
+    fish.enable = true;
+    gsimplecal.enable = true;
+    gtk-3.enable = true;
+    i3.enable = true;
+    i3blocks.enable = true;
+    nvim.enable = true;
+    rofi.enable = true;
+    sxhkd.enable = true;
+    syncthing.enable = true;
+    unclutter.enable = true;
+    xresources.enable = true;
 
-  home.packages = with pkgs;
-  [ yazi
-    maim
-    playerctl
-    mpv
-    btop
-    firefox
-    opencode
-    warpd
-    inputs.tele-client.packages.${pkgs.system}.default
-   ];
+    packages = 
+    { default.enable = true;
+      playerctl.enable = true;
+      mpv.enable = true;
+      maim.enable = true;
+      warpd.enable = true;
+      firefox.enable = true;
+      opencode.enable = true;
+      tele.enable = true;
+    };
+  };
 
 }

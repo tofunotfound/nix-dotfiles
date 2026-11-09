@@ -12,16 +12,29 @@
     };
 
   outputs = { self, nixpkgs, nixpkgs-stable, home-manager, tele-client, catppuccin, ... }@inputs: 
-    { nixosConfigurations.laptop = nixpkgs.lib.nixosSystem 
-      { system = "x86_64-linux";
-        
-	specialArgs = { inherit inputs; };
-        
-	modules = 
-	[ ./hosts/thinkpad 
-	  home-manager.nixosModules.home-manager
-	];
+    { nixosConfigurations = 
+      { laptop = nixpkgs.lib.nixosSystem 
+        { system = "x86_64-linux";
+          
+          specialArgs = { inherit inputs; };
+                
+          modules = 
+          [ ./hosts/thinkpad 
+            home-manager.nixosModules.home-manager
+          ];  
+        };
 
+
+        wsl = nixpkgs.lib.nixosSystem 
+        { system = "x86_64-linux";
+          
+  	  specialArgs = { inherit inputs; };
+          
+  	  modules = 
+  	  [ ./hosts/wsl 
+  	    home-manager.nixosModules.home-manager
+  	  ];
+        };
       };
     };
 
