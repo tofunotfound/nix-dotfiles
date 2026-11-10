@@ -8,8 +8,8 @@ in
 
   options.myHomeModules.fastfetch.enable = lib.mkEnableOption "add fastfetch";
 
-  config = lib.mkIf cfg.enable {
-    programs.fastfetch = 
+  config = lib.mkIf cfg.enable 
+  { programs.fastfetch = 
     { enable = true;
   
       settings = 

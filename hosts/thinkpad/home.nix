@@ -24,7 +24,7 @@
       mpv.enable = true;
       maim.enable = true;
       warpd.enable = true;
-      firefox.enable = true;
+      firefox.enable = false;
       opencode.enable = true;
       tele.enable = true;
     };

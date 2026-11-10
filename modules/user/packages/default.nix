@@ -12,7 +12,6 @@ in
     mpv.enable = lib.mkEnableOption "add mpv";
     maim.enable = lib.mkEnableOption "add maim";
     warpd.enable = lib.mkEnableOption "add warpd";
-    firefox.enable = lib.mkEnableOption "add firefox";
     opencode.enable = lib.mkEnableOption "add opencode";
     tele.enable = lib.mkEnableOption "add tg cli";
   };
@@ -30,7 +29,6 @@ in
         (if cfg.mpv.enable then mpv else null)
         (if cfg.maim.enable then maim else null)
         (if cfg.warpd.enable then warpd else null)
-        (if cfg.firefox.enable then firefox else null)
         (if cfg.opencode.enable then opencode else null)
         (if cfg.tele.enable then inputs.tele-client.packages.${pkgs.system}.default else null)
       ]);

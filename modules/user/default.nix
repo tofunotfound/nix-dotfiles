@@ -20,6 +20,7 @@
     ./dunst
     ./packages
     ./theme
+    ./firefox
   ];
 
 }
