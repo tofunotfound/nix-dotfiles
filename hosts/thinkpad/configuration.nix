@@ -26,8 +26,10 @@
     steam.enable = true;
   }; 
 
-  myModules = 
-  { bluetooth.enable = true;
+  myModules =
+  { boot.systemd.enable = true;
+
+    bluetooth.enable = true;
     git.enable = true;
     xserveri3.enable = true;
     pipewire.enable = true;
