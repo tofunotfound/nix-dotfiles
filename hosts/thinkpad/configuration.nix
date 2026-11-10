@@ -2,13 +2,6 @@
 
 {
 
-  boot = 
-  { loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
-    kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [ "mem_sleep_default=deep" ];
-  };
-
   networking.hostName = "laptop";
 
   time.timeZone = "Europe/Minsk";

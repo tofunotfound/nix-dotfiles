@@ -31,7 +31,8 @@ in
           "pageActions.urlbarActions.share" = false;
           "browser.messaging-system.whatsNewPanel.enabled" = false;
           "browser.aboutConfig.showWarning" = false;
-        
+        "browser.uiCustomization.state" = "{\"placements\":{\"nav-bar\":[\"sidebar-button\",\"fxa-avatar-button\",\"back-button\",\"forward-button\",\"stop-reload-button\",\"urlbar-container\",\"downloads-button\",\"unified-extensions-button\",\"reset-pbm-toolbar-button\"]},\"seen\":[],\"dirtyAreaCache\":[\"nav-bar\"],\"currentVersion\":20,\"newElementCount\":0}";
+
           "sidebar.verticalTabs" = true; 
           "sidebar.position_start" = true;
           "sidebar.main.tools" = "syncedtabs";

@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ lib, pkgs, inputs, ... }:
 
 {
 
@@ -11,5 +11,5 @@
     flavor = "mocha";
     accent = "mauve";
   };
-  
+
 }
