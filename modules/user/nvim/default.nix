@@ -26,11 +26,12 @@ in
         zk-nvim
         langmapper-nvim
         bullets-vim
-        catppuccin-nvim
       ];
   
       extraLuaConfig =
-      ''vim.opt.number = true
+      ''vim.opt.linebreak = true
+
+        vim.opt.number = true
         vim.opt.relativenumber = true
   
         local langmapper = require('langmapper')
