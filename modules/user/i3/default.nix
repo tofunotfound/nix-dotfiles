@@ -1,77 +1,111 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.myHomeModules.i3;
+  cfg = config.myHomeModules;
 in
 
 {
 
   options.myHomeModules.i3.enable = lib.mkEnableOption "i3 settings";
 
-  config = lib.mkIf cfg.enable
+  config = lib.mkIf cfg.i3.enable
   { xsession =
     { windowManager.i3 =
       { enable = true;
 
         config =
 
-        let
-          mod = "Mod4";
-          mauve = "#cba6f7";
-          base = "#1e1e2e";
-          text = "#cdd6f4";
-          rosewater = "#f5e0dc";
-          overlay0 = "#6c7086";
-          peach = "#fab387";
-          surface0 = "#313244";
-          subtext0 = "#a6adc8";
-        in
+          let
+            mod = "Mod4";
+
+            mauve = "#cba6f7";
+            base = "#1e1e2e";
+            text = "#cdd6f4";
+            rosewater = "#f5e0dc";
+            overlay0 = "#6c7086";
+            peach = "#fab387";
+            surface0 = "#313244";
+            subtext0 = "#a6adc8";
+
+            myColors = lib.mkIf cfg.theme.catppuccin.enable
+            { background = base;
+
+              focused = 
+              { border = mauve;
+                background = base;
+                text = text;
+                indicator = rosewater;
+                childBorder = mauve;
+              };
+
+              focusedInactive = 
+              { border = overlay0;
+                background = base;
+                text = text;
+                indicator = rosewater;
+                childBorder = overlay0;
+              };
+
+              unfocused =
+              { border = overlay0;
+                background = base;
+                text = text;
+                indicator = rosewater;
+                childBorder = overlay0;
+              };
+
+              urgent =
+              { border = peach;
+                background = base;
+                text = peach;
+                indicator = overlay0;
+                childBorder = peach;
+              };
+
+              placeholder =
+              { border = overlay0;
+                background = base;
+                text = text;
+                indicator = overlay0;
+                childBorder = overlay0;
+              };
+            };
+
+            myBarColors = lib.mkIf cfg.theme.catppuccin.enable
+            { background = base;
+              statusline = text;
+              separator = overlay0;
+
+              focusedWorkspace =
+              { border = mauve;
+                background = base;
+                text = text;
+              };
+
+              activeWorkspace =
+              { border = surface0;
+                background = base;
+                text = subtext0;
+              };
+
+              inactiveWorkspace =
+              { border = base;
+                background = base;
+                text = overlay0;
+              };
+
+              urgentWorkspace = 
+              { border = peach;
+                background = base;
+                text = peach;
+              };
+            };
+
+          in
 
         { modifier = mod;
 
-          colors =
-          { background = base;
-
-            focused = 
-            { border = mauve;
-              background = base;
-              text = text;
-              indicator = rosewater;
-              childBorder = mauve;
-            };
-
-            focusedInactive = 
-            { border = overlay0;
-              background = base;
-              text = text;
-              indicator = rosewater;
-              childBorder = overlay0;
-            };
-
-            unfocused =
-            { border = overlay0;
-              background = base;
-              text = text;
-              indicator = rosewater;
-              childBorder = overlay0;
-            };
-
-            urgent =
-            { border = peach;
-              background = base;
-              text = peach;
-              indicator = overlay0;
-              childBorder = peach;
-            };
-
-            placeholder =
-            { border = overlay0;
-              background = base;
-              text = text;
-              indicator = overlay0;
-               childBorder = overlay0;
-            };
-          };
+          colors = myColors;
 
           fonts = { names = [ "JetBrainsMono Nerd Font" ]; size = 7.0; };
 
@@ -84,6 +118,7 @@ in
           [{ fonts = { names = [ "JetBrainsMono Nerd Font" ]; size = 7.0; };
              statusCommand = "${pkgs.i3blocks}/bin/i3blocks -c ~/.config/i3blocks/config";
              extraConfig = "bindsym button1 exec --no-startup-id gsimplecal";
+             colors = myBarColors;
           }];
 
           startup =

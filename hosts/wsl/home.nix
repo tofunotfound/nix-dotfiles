@@ -28,6 +28,10 @@
       opencode.enable = false;
       tele.enable = false;
     };
+
+    theme =
+    { catppuccin.enable = false;
+    };
   };
 
 }

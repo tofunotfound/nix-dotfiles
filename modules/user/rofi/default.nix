@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.myHomeModules.rofi;
+  cfg = config.myHomeModules;
 in
 
 {
@@ -13,14 +13,14 @@ in
     default = 200;
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf cfg.rofi.enable {
     programs.rofi =
     { enable = true;
 
-      #theme = "${pkgs.rofi}/share/rofi/themes/Arc-Dark";
+      theme = lib.mkIf (!cfg.theme.catppuccin.enable) "${pkgs.rofi}/share/rofi/themes/Arc-Dark";
 
       extraConfig =
-      { dpi = cfg.dpi;
+      { dpi = cfg.rofi.dpi;
       };
     };
   };
