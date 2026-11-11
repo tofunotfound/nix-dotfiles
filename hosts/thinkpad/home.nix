@@ -25,7 +25,7 @@
       maim.enable = true;
       warpd.enable = true;
       firefox.enable = true;
-      opencode.enable = true;
+      opencode.enable = false;
       tele.enable = true;
     };
   };
