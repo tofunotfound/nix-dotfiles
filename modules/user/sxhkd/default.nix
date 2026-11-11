@@ -26,7 +26,6 @@ in
         "super + shift {c,r,e}" = "{i3-msg reload, pkill sxhkd && i3-msg restart, i3-nagbar -t \"Warning\" -m \"EXIT??\" -B \"Yes\" \"i3-msg exit\"}";
         "super + ctrl {h,k,j,l} " = "i3-msg {resize shrink width 10 px or 10 ppt, resize grow height 10 px or 10 ppt, resize shrink height 10 px or 10 ppt, resize grow width 10 px or 10 ppt}";
         
-        #"ctrl + space" = "rofi -show drun -show-icons";
         "super + d" = "rofi -show drun -show-icons";
   
         "Print" = "bash -c 'maim -s | tee -p \"$HOME/M/Скрины/\$(date +'%Y-%m-%d_%H-%M-%S').png\" | xclip -selection clipboard -t image/png'";

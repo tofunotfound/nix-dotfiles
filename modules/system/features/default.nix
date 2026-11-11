@@ -17,5 +17,7 @@ in
     services.fstrim.enable = cfg.fstrim.enable;
     zramSwap.enable = cfg.zram.enable;
   };
+  
+  documentation.nixos.enable = false;
 
 }

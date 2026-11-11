@@ -11,6 +11,7 @@ in
   config = lib.mkIf cfg.enable {
     services =
     { displayManager.ly.enable = true;
+      displayManager.defaultSession = "none+i3";
   
       xserver = 
       { enable = true;
