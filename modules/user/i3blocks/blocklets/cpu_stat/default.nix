@@ -13,15 +13,15 @@
       temp=$(cat /sys/class/thermal/thermal_zone*/temp | sort -nr | head -n1 | awk '{print int($1/1000)}')
 
       awk -v c="$cpu" -v t="$temp" 'BEGIN {
-        if (c >= 85)       cc="#FF0000";
-        else if (c >= 60)  cc="#FFFF00";
-        else               cc="#FFFFFF";
+        if (c >= 85)      cc="color=\047#FF0000\047";
+        else if (c >= 60) cc="color=\047#FFFF00\047";
+        else              cc="";
 
-        if (t >= 80)       tc="#FF0000";
-	 else if (t >= 65)  tc="#FFFF00";
-        else               tc="#FFFFFF";
+        if (t >= 80)      tc="color=\047#FF0000\047";
+        else if (t >= 65) tc="color=\047#FFFF00\047";
+        else              tc="";
 
-        printf " <span color=\"%s\">%s%%</span> (<span color=\"%s\">%s°C</span>)\n", cc, c, tc, t
+        printf " <span %s>%s%%</span> (<span %s>%s°C</span>)\n", cc, c, tc, t
       }'
      '';
    };
