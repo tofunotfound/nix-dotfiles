@@ -18,6 +18,4 @@ in
     zramSwap.enable = cfg.zram.enable;
   };
   
-  documentation.nixos.enable = false;
-
 }

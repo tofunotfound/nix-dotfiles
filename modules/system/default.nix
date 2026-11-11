@@ -13,5 +13,7 @@
     ./openssh
     ./boot
   ];
+  
+  documentation.nixos.enable = false;
 
 }
