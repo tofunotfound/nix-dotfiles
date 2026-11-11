@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   cfg = config.myModules.xserveri3;
@@ -23,11 +23,11 @@ in
   
         windowManager.i3 = 
         { enable = true;
-          extraPackages = [];
+          extraPackages = [ pkgs.xclip ];
         };
   
         desktopManager = 
-        { xterm.enable = false;
+        { xterm.enable = true;
         };
       };
     };

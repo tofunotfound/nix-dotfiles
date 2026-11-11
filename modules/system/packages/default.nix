@@ -5,11 +5,12 @@ let
 in
 
 {
+  
+  options.myModules.default.enable = lib.mkEnableOption "default nix.settings";
 
   options.myModules.packages =
   { default.enable = lib.mkEnableOption "add default pkgs";
     brightnessctl.enable = lib.mkEnableOption "add brightnessctl";
-    xclip.enable = lib.mkEnableOption "add xclip";
     font.enable = lib.mkEnableOption "add jetbrains font";
   };
 
@@ -18,17 +19,14 @@ in
     { environment.systemPackages = with pkgs; 
       [ neovim
         p7zip
-        home-manager
       ];
   
       environment.variables.EDITOR = "nvim";
     })
     
-    { environment.systemPackages = lib.filter lib.isDerivation (with pkgs;
-      [ (if cfg.brightnessctl.enable then brightnessctl else null)
-        (if cfg.xclip.enable then xclip else null)
-      ]);
-    }
+    (lib.mkIf cfg.brightnessctl.enable
+    { environment.systemPackages = [ pkgs.brightnessctl ];
+    })
 
     (lib.mkIf cfg.font.enable
     { fonts.packages = with pkgs; 
@@ -36,7 +34,29 @@ in
       ];
     })
 
+    (lib.mkIf config.myModules.default.enable
+    { nix.settings =
+      { max-jobs = "auto";
+        cores = 0;
+        http-connections = 50;
+        download-buffer-size = 536870912;
+
+        keep-outputs = true;
+        keep-derivations = true;
+        auto-optimise-store = true;
+      
+        trusted-users = [ "root" "@wheel" ];
+        fallback = true;
+        connect-timeout = 5;
+        log-lines = 30;
+        warn-dirty = false;
+      };
+    })
+
     { documentation.nixos.enable = false;
+      environment.systemPackages = [ pkgs.home-manager ];
+      nix.settings.experimental-features = [ "nix-command" "flakes" ];
+      nixpkgs.config.allowUnfreee = true;
     }
   ];
 
