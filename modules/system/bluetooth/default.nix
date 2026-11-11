@@ -5,14 +5,12 @@ let
 in
 
 {
-  
-  options.myModules.bluetooth.enable = lib.mkEnableOption "add bluetooth";
 
-  config = lib.mkIf cfg.enable {
-    hardware.bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-      settings.General.FastConnectable = true;
+  options.myModules.bluetooth.enable = lib.mkEnableOption "enable bluetooth";
+
+  config = lib.mkIf cfg.enable
+  { hardware.bluetooth =
+    { enable = true;
     };
   };
 

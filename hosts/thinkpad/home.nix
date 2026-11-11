@@ -1,8 +1,8 @@
 { ... }:
 
 {
-  
-  myHomeModules = 
+ 
+  myHomeModules =
   { alacritty.enable = true;
     dunst.enable = true;
     fastfetch.enable = true;
@@ -13,12 +13,15 @@
     i3blocks.enable = true;
     nvim.enable = true;
     rofi.enable = true;
+    rofi.dpi = 200;
+
     sxhkd.enable = true;
     syncthing.enable = true;
     unclutter.enable = true;
     xresources.enable = true;
+    xresources.dpi = 140;
 
-    packages = 
+    packages =
     { default.enable = true;
       playerctl.enable = true;
       mpv.enable = false;
@@ -27,6 +30,10 @@
       firefox.enable = true;
       opencode.enable = false;
       tele.enable = false;
+    };
+
+    theme =
+    { catppuccin.enable = true;
     };
   };
 

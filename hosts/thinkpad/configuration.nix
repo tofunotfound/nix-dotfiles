@@ -9,16 +9,16 @@
 
 
   programs = 
-  { fish.enable = true;  
+  { fish.enable = true;
     tmux.enable = true;
 
     steam.enable = false;
-  }; 
+  };
 
   myModules =
-  { default.enable = true;
+  { boot = "systemd";
 
-    boot.systemd.enable = true;
+    default.enable = true;
 
     bluetooth.enable = true;
     git.enable = true;
@@ -28,7 +28,7 @@
     fstrim.enable = true;
     zram.enable = true;
     openssh.enable = true;
-    
+
     packages = 
     { default.enable = true;
       brightnessctl.enable = true;

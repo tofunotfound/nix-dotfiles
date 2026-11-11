@@ -4,30 +4,26 @@ let
   cfg = config.myModules.xserveri3;
 in
 
-{ 
-  
-  options.myModules.xserveri3.enable = lib.mkEnableOption "add i3";
+{
 
-  config = lib.mkIf cfg.enable {
-    services =
+  options.myModules.xserveri3.enable = lib.mkEnableOption "enable xserver with i3";
+
+  config = lib.mkIf cfg.enable 
+  { services =
     { displayManager.ly.enable = true;
-      displayManager.defaultSession = "none+i3";
-  
+
       xserver = 
       { enable = true;
-  
+        excludePackages = [ pkgs.xterm ];
+
         xkb = 
         { layout = "ru";
           variant = "";
         };
-  
+
         windowManager.i3 = 
         { enable = true;
           extraPackages = [ pkgs.xclip ];
-        };
-  
-        desktopManager = 
-        { xterm.enable = true;
         };
       };
     };

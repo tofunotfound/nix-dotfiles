@@ -1,5 +1,34 @@
 {
-  
+
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, nixos-wsl, tele-client, catppuccin, ... }@inputs:
+
+    let
+      commonModules =
+      [ { _module.args = { inherit inputs; }; }
+
+        home-manager.nixosModules.home-manager
+        nixos-wsl.nixosModules.default
+      ];
+    in
+
+    { nixosConfigurations =
+      { laptop = nixpkgs.lib.nixosSystem
+        { system = "x86_64-linux";
+          modules = commonModules ++
+          [ ./hosts/thinkpad
+          ];
+        };
+
+
+        wsl = nixpkgs.lib.nixosSystem
+        { system = "x86_64-linux";
+          modules = commonModules ++
+          [ ./hosts/wsl
+          ];
+        };
+      };
+    };
+
   inputs = 
     { nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
       nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
@@ -8,37 +37,10 @@
       home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
       nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+      nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
       tele-client.url = "github:sorokin-vladimir/tele";
       catppuccin.url = "github:catppuccin/nix";
-    };
-
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, nixos-wsl, tele-client, catppuccin, ... }@inputs: 
-    { nixosConfigurations = 
-      { laptop = nixpkgs.lib.nixosSystem 
-        { system = "x86_64-linux";
-          
-          specialArgs = { inherit inputs; };
-                
-          modules = 
-          [ ./hosts/thinkpad 
-            home-manager.nixosModules.home-manager
-          ];  
-        };
-
-
-        wsl = nixpkgs.lib.nixosSystem 
-        { system = "x86_64-linux";
-          
-  	  specialArgs = { inherit inputs; };
-          
-  	  modules = 
-  	  [ ./hosts/wsl 
-	    nixos-wsl.nixosModules.default
-  	    home-manager.nixosModules.home-manager
-  	  ];
-        };
-      };
     };
 
 }

@@ -6,14 +6,14 @@ in
 
 {
 
-  options.myHomeModules.fastfetch.enable = lib.mkEnableOption "add fastfetch";
+  options.myHomeModules.fastfetch.enable = lib.mkEnableOption "enable fastfetch";
 
-  config = lib.mkIf cfg.enable 
-  { programs.fastfetch = 
+  config = lib.mkIf cfg.enable
+  { programs.fastfetch =
     { enable = true;
-  
-      settings = 
-      { modules = 
+
+      settings =
+      { modules =
         [ "title"
           "separator"
           "os"
@@ -41,7 +41,7 @@ in
           "poweradapter"
           "locale"
           "break"
-          "colors" 
+          "colors"
         ];
       };
     };

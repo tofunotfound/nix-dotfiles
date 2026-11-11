@@ -6,14 +6,14 @@ in
 
 {
 
-  options.myHomeModules.unclutter.enable = lib.mkEnableOption "add unclutter";
+  options.myHomeModules.unclutter.enable = lib.mkEnableOption "enable unclutter";
 
-  config = lib.mkIf cfg.enable {
-    services.unclutter = 
+  config = lib.mkIf cfg.enable
+  { services.unclutter =
     { enable = true;
       package = pkgs.unclutter-xfixes;
       timeout = 1;
-      extraOptions = 
+      extraOptions =
       [ "root"
         "jitter 8"
       ];

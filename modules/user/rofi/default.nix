@@ -6,16 +6,21 @@ in
 
 {
 
-  options.myHomeModules.rofi.enable = lib.mkEnableOption "add rofi";
+  options.myHomeModules.rofi.enable = lib.mkEnableOption "enable rofi";
+
+  options.myHomeModules.rofi.dpi = lib.mkOption
+  { type = lib.types.int;
+    default = 200;
+  };
 
   config = lib.mkIf cfg.enable {
-    programs.rofi = 
+    programs.rofi =
     { enable = true;
-  
+
       #theme = "${pkgs.rofi}/share/rofi/themes/Arc-Dark";
 
-      extraConfig = 
-      { dpi = 200;
+      extraConfig =
+      { dpi = cfg.dpi;
       };
     };
   };

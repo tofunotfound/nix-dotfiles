@@ -6,12 +6,12 @@ in
 
 {
 
-  options.myHomeModules.gsimplecal.enable = lib.mkEnableOption "add gsimplecal";
+  options.myHomeModules.gsimplecal.enable = lib.mkEnableOption "enable gsimplecal";
 
   config = lib.mkIf cfg.enable {
     home.packages = [ pkgs.gsimplecal ];
 
-    xdg.configFile."gsimplecal/config".text = 
+    xdg.configFile."gsimplecal/config".text =
     ''[settings]
       show_calendar = 1
       show_timezones = 0

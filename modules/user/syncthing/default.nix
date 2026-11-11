@@ -6,10 +6,10 @@ in
 
 {
 
-  options.myHomeModules.syncthing.enable = lib.mkEnableOption "add syncthing";
+  options.myHomeModules.syncthing.enable = lib.mkEnableOption "enable syncthing";
 
-  config = lib.mkIf cfg.enable {
-    services.syncthing.enable = true;
+  config = lib.mkIf cfg.enable
+  { services.syncthing.enable = true;
   };
 
 }

@@ -8,9 +8,14 @@ in
 
   options.myHomeModules.xresources.enable = lib.mkEnableOption "xresources settings";
 
-  config = lib.mkIf cfg.enable {
-    xresources.properties = 
-    { "Xft.dpi" = 140;
+  options.myHomeModules.xresources.dpi = lib.mkOption
+  { type = lib.types.int;
+    default = 140;
+  };
+
+  config = lib.mkIf cfg.enable
+  { xresources.properties =
+    { "Xft.dpi" = cfg.dpi;
     };
   };
 

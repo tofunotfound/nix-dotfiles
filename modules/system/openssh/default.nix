@@ -6,7 +6,7 @@ in
 
 {
 
-  options.myModules.openssh.enable = lib.mkEnableOption "add openssh";
+  options.myModules.openssh.enable = lib.mkEnableOption "enable openssh";
 
   config = lib.mkIf cfg.enable
   { services.openssh.enable = true;

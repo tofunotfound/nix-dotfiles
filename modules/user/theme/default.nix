@@ -1,4 +1,8 @@
-{ lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
+
+let
+  cfg = config.myHomeModules.theme.catppuccin;
+in
 
 {
 
@@ -6,10 +10,14 @@
   [ inputs.catppuccin.homeManagerModules.catppuccin
   ];
 
-  catppuccin = 
-  { enable = true;
-    flavor = "mocha";
-    accent = "mauve";
+  options.myHomeModules.theme.catppuccin.enable = lib.mkEnableOption "enable theme";
+
+  config = lib.mkIf cfg.enable
+  { catppuccin =
+    { enable = true;
+      flavor = "mocha";
+      accent = "mauve";
+    };
   };
 
 }

@@ -7,15 +7,15 @@ in
 {
 
   options.myHomeModules.packages = 
-  { default.enable = lib.mkEnableOption "add default packages";
-    playerctl.enable = lib.mkEnableOption "add playerctl";
-    mpv.enable = lib.mkEnableOption "add mpv";
-    maim.enable = lib.mkEnableOption "add maim";
-    warpd.enable = lib.mkEnableOption "add warpd";
-    opencode.enable = lib.mkEnableOption "add opencode";
-    tele.enable = lib.mkEnableOption "add tg cli";
+  { default.enable = lib.mkEnableOption "enable default packages";
+    playerctl.enable = lib.mkEnableOption "enable playerctl";
+    mpv.enable = lib.mkEnableOption "enable mpv";
+    maim.enable = lib.mkEnableOption "enable maim";
+    warpd.enable = lib.mkEnableOption "enable warpd";
+    opencode.enable = lib.mkEnableOption "enable opencode";
+    tele.enable = lib.mkEnableOption "enable tg cli";
   };
-  
+
   config = lib.mkMerge
   [ (lib.mkIf cfg.default.enable
     { home.packages = with pkgs;
@@ -23,7 +23,7 @@ in
         btop
       ];
     })
-  
+
     { home.packages = lib.filter lib.isDerivation (with pkgs;
       [ (if cfg.playerctl.enable then playerctl else null)
         (if cfg.mpv.enable then mpv else null)

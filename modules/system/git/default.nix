@@ -5,13 +5,13 @@ let
 in
 
 {
-  
-  options.myModules.git.enable = lib.mkEnableOption "add git";
+ 
+  options.myModules.git.enable = lib.mkEnableOption "enable git";
 
   config = lib.mkIf cfg.enable {
     programs.git = 
     { enable = true;
-      
+
       config = 
       { user = 
         { name = "tofunotfound";

@@ -5,13 +5,13 @@ let
 in
 
 {
-  
+ 
   options.myModules.default.enable = lib.mkEnableOption "default nix.settings";
 
   options.myModules.packages =
-  { default.enable = lib.mkEnableOption "add default pkgs";
-    brightnessctl.enable = lib.mkEnableOption "add brightnessctl";
-    font.enable = lib.mkEnableOption "add jetbrains font";
+  { default.enable = lib.mkEnableOption "enable default pkgs";
+    brightnessctl.enable = lib.mkEnableOption "enable brightnessctl";
+    font.enable = lib.mkEnableOption "enable jetbrains font";
   };
 
   config = lib.mkMerge
@@ -20,10 +20,10 @@ in
       [ neovim
         p7zip
       ];
-  
+
       environment.variables.EDITOR = "nvim";
     })
-    
+
     (lib.mkIf cfg.brightnessctl.enable
     { environment.systemPackages = [ pkgs.brightnessctl ];
     })
@@ -44,7 +44,7 @@ in
         keep-outputs = true;
         keep-derivations = true;
         auto-optimise-store = true;
-      
+
         trusted-users = [ "root" "@wheel" ];
         fallback = true;
         connect-timeout = 5;

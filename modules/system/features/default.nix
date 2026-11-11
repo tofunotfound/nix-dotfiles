@@ -7,9 +7,9 @@ in
 { 
 
   options.myModules = 
-  { networkmanager.enable = lib.mkEnableOption "add NM";
-    fstrim.enable = lib.mkEnableOption "add fstrim";
-    zram.enable = lib.mkEnableOption "add zram";
+  { networkmanager.enable = lib.mkEnableOption "enable nerworkmanager";
+    fstrim.enable = lib.mkEnableOption "enable fstrim";
+    zram.enable = lib.mkEnableOption "enable zram";
   };
 
   config =
@@ -17,5 +17,5 @@ in
     services.fstrim.enable = cfg.fstrim.enable;
     zramSwap.enable = cfg.zram.enable;
   };
-  
+ 
 }

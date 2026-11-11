@@ -1,10 +1,6 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
-
-  wsl.enable = true;
-  wsl.defaultUser = "tofu";
-  networking.wireless.enable = false;
 
   networking.hostName = "wsl";
 
@@ -18,9 +14,9 @@
   }; 
 
   myModules = 
-  { default.enable = true;
+  { boot = "wsl";
 
-    boot.systemd.enable = false;
+    default.enable = true;
 
     bluetooth.enable = false;
     git.enable = true;
@@ -30,7 +26,7 @@
     fstrim.enable = false;
     zram.enable = false;
     openssh.enable = true;
-    
+
     packages = 
     { default.enable = true;
       brightnessctl.enable = false;

@@ -5,33 +5,33 @@ let
 in
 
 {
-  
-  options.myHomeModules.alacritty.enable = lib.mkEnableOption "add alacritty";
+
+  options.myHomeModules.alacritty.enable = lib.mkEnableOption "enable alacritty";
 
   config = lib.mkIf cfg.enable {
-    programs.alacritty = 
+    programs.alacritty =
     { enable = true;
-  
-      settings = 
-      { font = 
+
+      settings =
+      { font =
         { size = 10.0;
-          
-  	normal = 
-  	{ family = "JetBrainsMono Nerd Font";
-  	  style = "Regular"; 
-  	};
-  	bold = 
-  	{ family = "JetBrainsMono Nerd Font"; 
-  	  style = "Bold"; 
-  	};
-  	italic = 
-  	{ family = "JetBrainsMono Nerd Font";
-  	  style = "Italic";
-  	};
-  	bold_italic = 
-  	{ family = "JetBrainsMono Nerd Font";
-  	  style = "Bold Italic";
-  	};
+
+          normal =
+          { family = "JetBrainsMono Nerd Font";
+            style = "Regular";
+          };
+          bold =
+          { family = "JetBrainsMono Nerd Font";
+          style = "Bold";
+          };
+          italic =
+          { family = "JetBrainsMono Nerd Font";
+          style = "Italic";
+          };
+          bold_italic =
+          { family = "JetBrainsMono Nerd Font";
+          style = "Bold Italic";
+          };
         };
       };
     };

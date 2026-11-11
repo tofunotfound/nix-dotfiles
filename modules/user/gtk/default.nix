@@ -6,7 +6,7 @@ in
 
 {
 
-  options.myHomeModules.gtk-3.enable = lib.mkEnableOption "add gtk-3.0";
+  options.myHomeModules.gtk-3.enable = lib.mkEnableOption "enable file settings gtk-3.0";
 
   config = lib.mkIf cfg.enable 
   { xdg.configFile."gtk-3.0/settings.ini".text = 

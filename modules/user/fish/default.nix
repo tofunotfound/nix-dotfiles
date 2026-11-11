@@ -6,12 +6,12 @@ in
 
 {
 
-  options.myHomeModules.fish.enable = lib.mkEnableOption "add fish";
+  options.myHomeModules.fish.enable = lib.mkEnableOption "enable fish";
 
   config = lib.mkIf cfg.enable {
     programs.fish = 
     { enable = true;
-  
+
       interactiveShellInit = "set fish_greeting";
     };
   };

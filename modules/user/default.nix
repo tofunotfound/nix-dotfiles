@@ -2,7 +2,7 @@
 
 {
 
-  imports = 
+  imports =
   [ ./alacritty
     ./xresources
     ./fastfetch
