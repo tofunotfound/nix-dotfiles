@@ -35,6 +35,9 @@ in
       [ nerd-fonts.jetbrains-mono
       ];
     })
+
+    { documentation.nixos.enable = false;
+    }
   ];
 
 }

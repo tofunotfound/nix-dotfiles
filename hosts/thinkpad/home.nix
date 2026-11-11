@@ -21,12 +21,12 @@
     packages = 
     { default.enable = true;
       playerctl.enable = true;
-      mpv.enable = true;
+      mpv.enable = false;
       maim.enable = true;
       warpd.enable = true;
       firefox.enable = true;
       opencode.enable = false;
-      tele.enable = true;
+      tele.enable = false;
     };
   };
 

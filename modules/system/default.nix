@@ -14,6 +14,4 @@
     ./boot
   ];
   
-  documentation.nixos.enable = false;
-
 }
