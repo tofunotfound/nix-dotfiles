@@ -24,11 +24,6 @@
     options = [ "fmask=0077" "dmask=0077" ];
   };
 
-  fileSystems."/mnt/games" =
-  { label = "NIXGAMES";
-    fsType = "ext4";
-  };
-
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
