@@ -28,8 +28,8 @@
       maim.enable = true;
       warpd.enable = true;
       firefox.enable = true;
-      opencode.enable = false;
-      tele.enable = false;
+      opencode.enable = true;
+      tele.enable = true;
     };
 
     theme =
