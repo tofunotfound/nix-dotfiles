@@ -1,14 +1,14 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.myHomeModules.gsimplecal;
+  cfg = config.myHomeModules;
 in
 
 {
 
   options.myHomeModules.gsimplecal.enable = lib.mkEnableOption "enable gsimplecal";
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf cfg.gsimplecal.enable {
     home.packages = [ pkgs.gsimplecal ];
 
     xdg.configFile."gsimplecal/config".text =
@@ -16,9 +16,9 @@ in
       show_calendar = 1
       show_timezones = 0
       mark_today = 1
-      mainwindow_yoffset = -65
+      mainwindow_yoffset = ${if cfg.theme.catppuccin.enable then ''-81'' else ''-65''}
       mainwindow_xoffset = 0
-      close_on_unfocus = 1	
+      close_on_unfocus = 1
     '';
   };
 

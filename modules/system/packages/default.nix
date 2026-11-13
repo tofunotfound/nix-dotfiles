@@ -19,6 +19,7 @@ in
     { environment.systemPackages = with pkgs; 
       [ neovim
         p7zip
+        btop
       ];
 
       environment.variables.EDITOR = "nvim";
