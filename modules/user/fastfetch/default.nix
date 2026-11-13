@@ -27,7 +27,7 @@ in
           "uptime"
           "packages"
           "shell"
-          "display"
+          #"display"
           "wm"
           "wmtheme"
           #"theme"

@@ -13,8 +13,17 @@ in
     { enable = true;
 
       settings =
-      { font =
+      { window =
+        { dynamic_padding = true;
+        };
+
+        font =
         { size = 10.0;
+
+          offset =
+          { x = 0;
+            y = -2;
+          };
 
           normal =
           { family = "JetBrainsMono Nerd Font";
