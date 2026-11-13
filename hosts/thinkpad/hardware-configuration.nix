@@ -14,18 +14,24 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { label = "NIXROOT";
-      fsType = "ext4";
-    };
+  { label = "NIXROOT";
+    fsType = "ext4";
+  };
 
   fileSystems."/boot" =
-    { label = "NIXBOOT";
-      fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
-    };
+  { label = "NIXBOOT";
+    fsType = "vfat";
+    options = [ "fmask=0077" "dmask=0077" ];
+  };
+
+  filesSystems."/mnt/games" =
+  { label = "NIXGAMES";
+    fsType = "ext4";
+  };
 
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
 }

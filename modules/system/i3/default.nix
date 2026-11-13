@@ -17,7 +17,7 @@ in
         excludePackages = [ pkgs.xterm ];
 
         displayManager.sessionCommands =
-        ''${pkgs.snixembed}/bin/snixembed -- fork
+        ''${pkgs.snixembed}/bin/snixembed &
         '';
 
         xkb =
