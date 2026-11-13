@@ -12,7 +12,7 @@
   { fish.enable = true;
     tmux.enable = true;
 
-    steam.enable = false;
+    steam.enable = true;
   };
 
   myModules =

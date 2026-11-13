@@ -8,20 +8,24 @@ in
 
   options.myModules.xserveri3.enable = lib.mkEnableOption "enable xserver with i3";
 
-  config = lib.mkIf cfg.enable 
+  config = lib.mkIf cfg.enable
   { services =
     { displayManager.ly.enable = true;
 
-      xserver = 
+      xserver =
       { enable = true;
         excludePackages = [ pkgs.xterm ];
 
-        xkb = 
+        displayManager.sessionCommands =
+        ''${pkgs.snixembed}/bin/snixembed -- fork
+        '';
+
+        xkb =
         { layout = "ru";
           variant = "";
         };
 
-        windowManager.i3 = 
+        windowManager.i3 =
         { enable = true;
           extraPackages = [ pkgs.xclip ];
         };

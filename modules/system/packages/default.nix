@@ -56,7 +56,7 @@ in
     { documentation.nixos.enable = false;
       environment.systemPackages = [ pkgs.home-manager ];
       nix.settings.experimental-features = [ "nix-command" "flakes" ];
-      nixpkgs.config.allowUnfreee = true;
+      nixpkgs.config.allowUnfree = true;
     }
   ];
 

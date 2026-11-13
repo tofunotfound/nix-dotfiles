@@ -14,7 +14,7 @@
     home.homeDirectory = "/home/tofu";
     home.backupFileExtension = "backup";
     home.stateVersion = "26.05";
-     
+
     imports = 
     [ ./home.nix
       ../../modules/user

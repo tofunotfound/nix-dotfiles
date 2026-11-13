@@ -29,7 +29,7 @@ in
         indent-blankline-nvim
       ];
 
-      extraLuaConfig =
+      initLua =
       ''vim.opt.linebreak = true
 
         vim.opt.number = true

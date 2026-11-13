@@ -19,7 +19,7 @@ in
 
       theme = lib.mkIf (!cfg.theme.catppuccin.enable) "${pkgs.rofi}/share/rofi/themes/Arc-Dark";
 
-      extraConfig =
+      settings =
       { dpi = cfg.rofi.dpi;
       };
     };
