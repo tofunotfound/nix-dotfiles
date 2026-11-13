@@ -13,9 +13,14 @@ in
     { enable = true;
 
       settings =
-      { modules =
-        [ "title"
-          "separator"
+      { logo =
+        { source = "none";
+          padding.right = 1;
+        };
+
+        modules =
+        [ #"title"
+          #"separator"
           "os"
           "host"
           "kernel"
@@ -25,10 +30,10 @@ in
           "display"
           "wm"
           "wmtheme"
-          "theme"
-          "icons"
+          #"theme"
+          #"icons"
           "font"
-          "cursor"
+          #"cursor"
           "terminal"
           "terminalfont"
           "cpu"
@@ -36,12 +41,12 @@ in
           "memory"
           "swap"
           "disk"
-          "localip"
+          #"localip"
           "battery"
           "poweradapter"
-          "locale"
-          "break"
-          "colors"
+          #"locale"
+          #"break"
+          #"colors"
         ];
       };
     };

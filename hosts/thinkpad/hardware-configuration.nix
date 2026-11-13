@@ -24,7 +24,7 @@
     options = [ "fmask=0077" "dmask=0077" ];
   };
 
-  filesSystems."/mnt/games" =
+  fileSystems."/mnt/games" =
   { label = "NIXGAMES";
     fsType = "ext4";
   };
