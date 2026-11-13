@@ -30,7 +30,7 @@ in
           #"display"
           "wm"
           "wmtheme"
-          #"theme"
+          "theme"
           #"icons"
           "font"
           #"cursor"
@@ -44,7 +44,7 @@ in
           #"localip"
           "battery"
           "poweradapter"
-          #"locale"
+          "locale"
           #"break"
           #"colors"
         ];
