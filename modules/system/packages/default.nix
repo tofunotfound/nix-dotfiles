@@ -42,8 +42,8 @@ in
         http-connections = 50;
         download-buffer-size = 536870912;
 
-        keep-outputs = true;
-        keep-derivations = true;
+        # keep-outputs = true;
+        # keep-derivations = true;
         auto-optimise-store = true;
 
         trusted-users = [ "root" "@wheel" ];
