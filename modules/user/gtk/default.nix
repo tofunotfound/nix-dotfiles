@@ -1,14 +1,14 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.myHomeModules.gtk-3;
+  cfg = config.myHomeModules.gtk;
 in
 
 {
 
-  options.myHomeModules.gtk-3.enable = lib.mkEnableOption "enable file settings gtk-3.0";
+  options.myHomeModules.gtk.enable = lib.mkEnableOption "enable file settings gtk";
 
-  config = lib.mkIf cfg.enable 
+  config = lib.mkIf cfg.enable
   { gtk =
     { enable = true;
       theme =

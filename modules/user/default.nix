@@ -7,7 +7,6 @@
     ./xresources
     ./fastfetch
     ./fish
-    ./gsimplecal
     ./gtk
     ./i3
     ./i3blocks

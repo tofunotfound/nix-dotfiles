@@ -7,7 +7,6 @@
     dunst.enable = false;
     fastfetch.enable = true;
     fish.enable = true;
-    gsimplecal.enable = false;
     gtk-3.enable = false;
     i3.enable = false;
     i3blocks.enable = false;

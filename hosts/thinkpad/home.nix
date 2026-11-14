@@ -7,8 +7,7 @@
     dunst.enable = true;
     fastfetch.enable = true;
     fish.enable = true;
-    gsimplecal.enable = true;
-    gtk-3.enable = true;
+    gtk.enable = true;
     i3.enable = true;
     i3blocks.enable = true;
     nvim.enable = true;
