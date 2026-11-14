@@ -15,8 +15,8 @@ in
 
   config = lib.mkIf cfg.rofi.enable {
     home.packages = with pkgs;
-      [ util-linux ]
-      ++ lib.optional (!cfg.packages.playerctl.enable) playerctl;
+      [ util-linux playerctl ];
+      #++ lib.optional (!cfg.packages.playerctl.enable) playerctl;
 
     programs.rofi =
     { enable = true;
@@ -164,6 +164,7 @@ in
         next_icon=$'\xef\x81\x8e'
 
         script_path=$(readlink -f "$0")
+        sep=$'\x1f'
 
         truncate_text() {
           local text="''${1}"
@@ -205,19 +206,50 @@ in
             -me-accept-custom ""
         fi
 
+        pl=$(for p in $(playerctl -l 2>/dev/null); do
+          if [[ "$(playerctl -p "''${p}" status 2>/dev/null)" == "Playing" ]]; then
+            printf '%s' "''${p}"
+            break
+          fi
+        done)
+        if [[ -z "''${pl}" ]]; then
+          pl=$(playerctl -l 2>/dev/null | head -n 1)
+        fi
+
+        snapshot() {
+          if [[ -z "''${pl}" ]]; then
+            printf '%s%s' "''${sep}" "''${sep}"
+            return 0
+          fi
+          playerctl -p "''${pl}" metadata \
+            --format "{{status}}''${sep}{{artist}}''${sep}{{title}}" 2>/dev/null || true
+        }
+
+        pre_status=""
+
+        if [[ "''${ROFI_RETV:-0}" == 10 || "''${ROFI_RETV:-0}" == 11 ]]; then
+          IFS="''${sep}" read -r pre_status _ _ <<<"$(snapshot)"
+        fi
+
         settle=0
 
         case "''${ROFI_RETV:-0}" in
           10)
-            playerctl previous >/dev/null 2>&1 || true
+            if [[ -n "''${pl}" ]]; then
+              playerctl -p "''${pl}" previous >/dev/null 2>&1 || true
+            fi
             settle=1
             ;;
           11)
-            playerctl next >/dev/null 2>&1 || true
+            if [[ -n "''${pl}" ]]; then
+              playerctl -p "''${pl}" next >/dev/null 2>&1 || true
+            fi
             settle=1
             ;;
           12)
-            playerctl play-pause >/dev/null 2>&1 || true
+            if [[ -n "''${pl}" ]]; then
+              playerctl -p "''${pl}" play-pause >/dev/null 2>&1 || true
+            fi
             ;;
           13)
             if wpctl set-volume @DEFAULT_SINK@ 5%- >/dev/null 2>&1; then
@@ -231,19 +263,25 @@ in
             ;;
         esac
 
-        player_status=$(playerctl status 2>/dev/null || true)
+        player_status=""
 
         if (( settle )); then
           for _ in 1 2 3 4 5 6 7 8 9 10; do
+            IFS="''${sep}" read -r player_status _ _ <<<"$(snapshot)"
             if [[ "''${player_status}" == "Playing" ]]; then
               break
             fi
             sleep 0.05
-            player_status=$(playerctl status 2>/dev/null || true)
           done
         fi
-        artist=$(playerctl metadata artist 2>/dev/null || true)
-        title=$(playerctl metadata title 2>/dev/null || true)
+
+        IFS="''${sep}" read -r player_status artist title <<<"$(snapshot)"
+
+        # Transient "Paused" right after a skip is just the new track loading:
+        # if it played before the skip, keep showing Playing.
+        if (( settle )) && [[ "''${pre_status}" == "Playing" && "''${player_status}" != "Playing" ]]; then
+          player_status="Playing"
+        fi
 
         if [[ -z "''${artist}" ]]; then
           artist="Unknown artist"
